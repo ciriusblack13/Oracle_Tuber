@@ -3,10 +3,12 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Sparklines, SparklinesLine } from "react-sparklines";
-import { FileText, Video, PenSquare, FileVideo } from "lucide-react";
+import { FileText, Video, Image, FileVideo, MessageSquare } from "lucide-react";
 import AIScriptWriter from "@/components/dashboard/AIScriptWriter";
 import VideoGenerator from "@/components/dashboard/VideoGenerator";
 import VideoEditor from "@/components/dashboard/VideoEditor";
+import BrandVoice from "@/components/dashboard/BrandVoice";
+import ThumbnailGenerator from "@/components/dashboard/ThumbnailGenerator";
 
 const tools = [
   {
@@ -30,11 +32,10 @@ const tools = [
     description: "Modifica i tuoi video tramite lo script del video",
   },
   {
-    id: "general-copy",
-    icon: PenSquare,
-    title: "General Copy",
-    description:
-      "Genera testi versatili adattabili a vari formati di contenuto",
+    id: "thumbnail-generator",
+    icon: Image,
+    title: "Thumbnail Generator",
+    description: "Genera e modifica thumbnail accattivanti per i tuoi video",
   },
 ];
 
@@ -43,8 +44,22 @@ const Lab = () => {
 
   return (
     <div className="space-y-6 p-6">
-      <h1 className="text-3xl font-bold">Lab</h1>
-      <p className="text-muted-foreground">Scegli uno strumento per iniziare</p>
+      <div className="flex justify-between items-center">
+        <div>
+          <h1 className="text-3xl font-bold">Lab</h1>
+          <p className="text-muted-foreground">
+            Scegli uno strumento per iniziare
+          </p>
+        </div>
+        <Button
+          variant="outline"
+          className="gap-2"
+          onClick={() => setSelectedTool("brand-voice")}
+        >
+          <MessageSquare className="h-4 w-4" />
+          Brand Voice
+        </Button>
+      </div>
 
       {!selectedTool ? (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -100,6 +115,8 @@ const Lab = () => {
             />
           )}
           {selectedTool === "video-editor" && <VideoEditor />}
+          {selectedTool === "brand-voice" && <BrandVoice />}
+          {selectedTool === "thumbnail-generator" && <ThumbnailGenerator />}
         </div>
       )}
     </div>

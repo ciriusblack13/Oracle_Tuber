@@ -5,6 +5,7 @@ import Overview from "./pages/Overview";
 import Lab from "./pages/Lab";
 import ContentIdeas from "./pages/ContentIdeas";
 import Competitors from "./pages/Competitors";
+import Settings from "./pages/Settings";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="lab" element={<Lab />} />
           <Route path="content-ideas" element={<ContentIdeas />} />
           <Route path="competitors" element={<Competitors />} />
+          <Route path="settings" element={<Settings />} />
         </Route>
       </Routes>
     </Suspense>
